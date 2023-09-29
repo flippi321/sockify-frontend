@@ -1,5 +1,5 @@
 <template>
-  <MainPage msg="I have a cute dog" response=""/>
+  <MainPage msg="I have a cute dog"/>
 </template>
 
 <script>
