@@ -2,7 +2,7 @@
   <div>
     <p>{{ msg }}</p>
     <h1> {{ count }} </h1>
-    <button @click="count++">Create my socks</button>
+    <button @click="count++">Create MORE!</button>
   </div>
 </template>
 
