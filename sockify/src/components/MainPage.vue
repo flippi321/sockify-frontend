@@ -2,11 +2,13 @@
   <div>
     <p>{{ msg }}</p>
     <h1> {{ count }} </h1>
-    <button @click="count++"> {{ text }}</button>
+    <button @click="handleButtonClick"> {{ text }}</button>
   </div>
 </template>
 
 <script>
+import apiService from '../services/apiService.js';  // Update path accordingly
+
 export default {
   props: ['msg'],
   data() {
@@ -24,6 +26,16 @@ export default {
     this.text = this.getRandomPlaceholder();
   },
   methods: {
+    async handleButtonClick() {
+      try {
+        const dataFromBackend = await apiService.fetchData();
+
+        this.count = dataFromBackend.newCount;
+        this.text = this.getRandomPlaceholder();
+      } catch (error) {
+        console.error("Error handling button click:", error);
+      }
+    },
     getRandomPlaceholder() {
       const randomIndex = Math.floor(Math.random() * this.placeholders.length);
       return this.placeholders[randomIndex];
