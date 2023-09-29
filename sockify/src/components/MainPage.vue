@@ -8,10 +8,22 @@
 
 <script>
 export default {
-  name: 'promptPage',
-  props: {
-    prompt: String,
-    response: String
+  props: ['msg'],
+  data() {
+    return {
+      placeholders: [
+        'I ',
+        'Placeholder 2',
+        'Placeholder 3',
+        // ...add as many placeholders as you like
+      ]
+    }
+  },
+  computed: {
+    randomPlaceholder() {
+      const randomIndex = Math.floor(Math.random() * this.placeholders.length);
+      return this.placeholders[randomIndex];
+    }
   }
 }
 </script>
