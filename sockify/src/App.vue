@@ -1,15 +1,15 @@
 <template>
-  <HelloWorld msg="I have a cute dog" response=""/>
+  <MainPage msg="I have a cute dog" response=""/>
 </template>
 
 <script>
-import HelloWorld from './components/main.vue'
+import MainPage from './components/MainPage.vue'
 
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MainPage
   }
 }
 </script>
