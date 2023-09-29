@@ -1,5 +1,5 @@
 <template>
-  <MainPage msg="I have a cute dog"/>
+  <MainPage msg="Socks made by you:"/>
 </template>
 
 <script>
