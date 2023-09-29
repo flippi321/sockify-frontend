@@ -1,8 +1,8 @@
 <template>
   <div>
     <p>{{ msg }}</p>
-    <input type="text" :placeholder="randomPlaceholder">
-    <p>{{ response }}</p>
+    <h1> {{ count }} </h1>
+    <button @click="count++">Create my socks</button>
   </div>
 </template>
 
@@ -11,11 +11,11 @@ export default {
   props: ['msg'],
   data() {
     return {
+      count: 0,
       placeholders: [
-        'I ',
-        'Placeholder 2',
-        'Placeholder 3',
-        // ...add as many placeholders as you like
+        'Socks which butter at the bottom so I can slide across the floor',
+        'Socks with a rubber grip at the bottom',
+        'Socks with ',
       ]
     }
   },
