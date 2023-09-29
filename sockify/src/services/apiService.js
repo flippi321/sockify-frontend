@@ -12,6 +12,4 @@ export default {
             throw error;
         }
     },
-
-    // Add more API methods as needed
 };
