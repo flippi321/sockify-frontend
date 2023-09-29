@@ -28,7 +28,7 @@ export default {
   methods: {
     async handleButtonClick() {
       try {
-        const dataFromBackend = await apiService.fetchData();
+        const dataFromBackend = await apiService.getASockIdea();
 
         this.count = dataFromBackend.newCount;
         this.text = this.getRandomPlaceholder();
