@@ -2,12 +2,14 @@
   <div>
     <h2>Generate a unique sock idea based on size and theme:</h2>
 
+    <!-- Dropdown for sock size -->
     <label for="sockSize">Sock Size:</label>
     <select v-model="selectedSockSize" id="sockSize">
       <option v-for="size in sockSize" :key="size" :value="size">
         {{ size }}
       </option>
     </select>
+    <br/> 
 
     <!-- Dropdown for sock themes -->
     <label for="themes">Sock Theme:</label>
@@ -16,9 +18,8 @@
         {{ theme }}
       </option>
     </select>
+     <br/> 
 
-    <p>{{ msg }}</p>
-    <h1> {{ count }} </h1>
     <button @click="handleButtonClick"> {{ text }}</button>
   </div>
 </template>
@@ -30,8 +31,7 @@ export default {
   props: ['msg'],
   data() {
     return {
-      count: 0,
-      text: '',
+      text: 'Generate!',
       selectedSockSize: '',  // For selected sock size
       selectedTheme: '',     // For selected theme
       sockSize: [
@@ -53,9 +53,6 @@ export default {
       ],
     }
   },
-  created() {
-    this.text = this.getRandomPlaceholder();
-  },
   methods: {
     async handleButtonClick() {
       try {
@@ -65,10 +62,6 @@ export default {
       } catch (error) {
         console.error("Error handling button click:", error);
       }
-    },
-    getRandomPlaceholder() {
-      const randomIndex = Math.floor(Math.random() * this.placeholders.length);
-      return this.placeholders[randomIndex];
     }
   },
 }
