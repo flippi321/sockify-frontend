@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "http://192.168.10.149:3000/sockIdea"; // or "http://localhost:3000/"
+const API_URL = "https://sockify-backend.vercel.app/"; // "http://192.168.10.149:3000/sockIdea";
 
 export default {
     async getASockIdea(size, type, quality) {
