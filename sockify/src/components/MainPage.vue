@@ -32,8 +32,8 @@ export default {
   data() {
     return {
       text: 'Generate!',
-      selectedSockSize: '',  // For selected sock size
-      selectedTheme: '',     // For selected theme
+      selectedSockSize: '',
+      selectedTheme: '',
       sockSize: [
         "Ankle Socks",
         "Crew Socks",
@@ -46,17 +46,12 @@ export default {
         "Steampunk",
         "Festive",
       ],
-      placeholders: [
-        'Socks which butter at the bottom so I can slide across the floor',
-        'Socks with a rubber grip at the bottom',
-        'Two socks on each feet',
-      ],
     }
   },
   methods: {
     async handleButtonClick() {
       try {
-        const dataFromBackend = await apiService.getASockIdea();
+        const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme);
         console.log(dataFromBackend);
         this.$emit('generatedSock', dataFromBackend)
       } catch (error) {
