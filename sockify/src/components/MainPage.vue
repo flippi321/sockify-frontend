@@ -60,7 +60,7 @@ export default {
       qualities: [
         "Comfortable",
         "Allright",
-        "Terrible, but cheap",
+        "Terrible",
       ],
     }
   },
