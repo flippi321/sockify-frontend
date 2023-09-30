@@ -15,6 +15,28 @@ export default {
     return {
       count: 0,
       text: '',
+      sockTypes: [
+        "Ankle Socks",
+        "Crew Socks",
+        "No-Show Socks",
+        "Knee-High Socks",
+        "Thigh-High Socks",
+        "Slipper Socks",
+        "Toe Socks",
+        "Athletic Socks",
+        "Dress Socks",
+        "Diabetic Socks",
+        "Compression Socks",
+        "Boot Socks",
+        "Liner Socks",
+        "Mid-Calf Socks",
+        "Low-Cut Socks",
+        "Novelty Socks",
+        "Wool Socks",
+        "Cotton Socks",
+        "Bamboo Socks",
+        "Thermal Socks"
+      ],
       placeholders: [
         'Socks which butter at the bottom so I can slide across the floor',
         'Socks with a rubber grip at the bottom',
