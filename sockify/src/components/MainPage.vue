@@ -66,3 +66,61 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+/* Overall container */
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    background-color: #f9f9f9;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling the title */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Styling the dropdowns */
+select {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Styling the button */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling the labels */
+label {
+    font-weight: 500;
+    margin-top: 10px;
+    color: #555;
+}
+</style>
