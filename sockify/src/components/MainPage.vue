@@ -15,27 +15,18 @@ export default {
     return {
       count: 0,
       text: '',
-      sockTypes: [
+      sockSize: [
         "Ankle Socks",
         "Crew Socks",
-        "No-Show Socks",
         "Knee-High Socks",
-        "Thigh-High Socks",
-        "Slipper Socks",
-        "Toe Socks",
-        "Athletic Socks",
-        "Dress Socks",
-        "Diabetic Socks",
-        "Compression Socks",
-        "Boot Socks",
-        "Liner Socks",
-        "Mid-Calf Socks",
-        "Low-Cut Socks",
-        "Novelty Socks",
-        "Wool Socks",
-        "Cotton Socks",
-        "Bamboo Socks",
-        "Thermal Socks"
+        "Thigh-High/Programmer Socks",
+      ],
+      themes: [
+        "Generic",
+        "SCI-FI",
+        "Steampunk",
+        "Festive",
+        ""
       ],
       placeholders: [
         'Socks which butter at the bottom so I can slide across the floor',
