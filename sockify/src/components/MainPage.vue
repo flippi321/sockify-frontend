@@ -29,9 +29,8 @@ export default {
     async handleButtonClick() {
       try {
         const dataFromBackend = await apiService.getASockIdea();
-
-        this.count = dataFromBackend.newCount;
-        this.text = this.getRandomPlaceholder();
+        console.log(dataFromBackend);
+        this.text = dataFromBackend;
       } catch (error) {
         console.error("Error handling button click:", error);
       }
