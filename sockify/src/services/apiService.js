@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "http://localhost:3000/";
+const API_URL = "http://192.168.10.149:3000/";      // or "http://localhost:3000/"
 
 export default {
     async getASockIdea() {
