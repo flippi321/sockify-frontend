@@ -1,7 +1,7 @@
 <template>
   <div>
     <MainPage v-if="!sockData" msg="Socks made by you:" @generatedSock="showSock"/>
-    <SockDetails v-else :name="sockData.name" :description="sockData.description" :type="sockData.type" />
+    <SockDetails v-else :name="sockData.name" :description="sockData.description" :type="sockData.type" :slogan="sockData.slogan" />
   </div>
 </template>
 
@@ -22,11 +22,12 @@ export default {
   },
   methods: {
     showSock(sockCSV) {
-      const [name, type, description] = sockCSV.split(',').map(str => str.trim());
+      const [name, type, slogan, description] = sockCSV.split(';').map(str => str.trim());
 
       this.sockData = {
         name,
         type,
+        slogan,
         description
       };
     }

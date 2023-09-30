@@ -3,13 +3,14 @@
   <div class="container">
     <h1>{{ name }}</h1>
     <h3> {{ type }} </h3>
+    <h4> {{ slogan }} </h4>
     <p> {{ description }} </p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['name', 'description', 'type'],
+  props: ['name', 'type', 'slogan', 'description', ],
 }
 </script>
 

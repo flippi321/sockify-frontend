@@ -45,6 +45,7 @@ export default {
         "SCI-FI",
         "Steampunk",
         "Festive",
+        "Soviet",
       ],
     }
   },
