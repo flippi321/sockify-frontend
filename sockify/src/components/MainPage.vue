@@ -30,7 +30,7 @@ export default {
       try {
         const dataFromBackend = await apiService.getASockIdea();
         console.log(dataFromBackend);
-        this.text = dataFromBackend;
+        this.$emit('generatedSock', dataFromBackend)
       } catch (error) {
         console.error("Error handling button click:", error);
       }
