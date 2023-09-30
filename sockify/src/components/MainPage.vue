@@ -67,7 +67,7 @@ export default {
   methods: {
     async handleButtonClick() {
       try {
-        const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme, this.selectedQuality);
+        const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme, this.selectedQuality + " quality,");
         console.log(dataFromBackend);
         this.$emit('generatedSock', dataFromBackend)
       } catch (error) {
