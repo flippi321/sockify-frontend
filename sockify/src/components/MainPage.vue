@@ -18,7 +18,16 @@
         {{ theme }}
       </option>
     </select>
-     <br/> 
+    <br/> 
+
+    <!-- Dropdown for sock quality -->
+    <label for="qualities">Sock Quality:</label>
+    <select v-model="selectedQuality" id="qualities">
+      <option v-for="quality in qualities" :key="quality" :value="quality">
+        {{ quality }}
+      </option>
+    </select>
+    <br/> 
 
     <button @click="handleButtonClick"> {{ text }}</button>
   </div>
@@ -34,6 +43,7 @@ export default {
       text: 'Generate!',
       selectedSockSize: '',
       selectedTheme: '',
+      selectedQuality: '',
       sockSize: [
         "Ankle Socks",
         "Crew Socks",
@@ -47,12 +57,17 @@ export default {
         "Festive",
         "Soviet",
       ],
+      qualities: [
+        "Comfortable",
+        "Allright",
+        "Terrible, but cheap",
+      ],
     }
   },
   methods: {
     async handleButtonClick() {
       try {
-        const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme);
+        const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme, this.selectedQuality);
         console.log(dataFromBackend);
         this.$emit('generatedSock', dataFromBackend)
       } catch (error) {
