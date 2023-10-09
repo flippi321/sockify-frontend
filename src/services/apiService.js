@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-const API_URL = "https://sockify-backend.vercel.app/"; // "http://192.168.10.149:3000/sockIdea";
+const API_URL = "http://localhost:3000/sockIdea"; // or "http://localhost:3000/"
 
 export default {
-    async getASockIdea(size, type, quality) {
+    async getASockIdea(size, type) {
         try {
             const sockDescription = {
                 size: size,
                 type: type,
-                quality: quality,
             };
             const response = await axios.post(`${API_URL}`, sockDescription);
             return response.data;
