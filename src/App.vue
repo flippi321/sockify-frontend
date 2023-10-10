@@ -1,7 +1,7 @@
 <template>
   <div>
     <MainPage v-if="!sockData" @generatedSock="showSock"/>
-    <SockDetails v-else :name="sockData.name" :description="sockData.description" :type="sockData.type" :slogan="sockData.slogan" />
+    <SockDetails v-else :name="sockData.name" :description="sockData.description" :type="sockData.type" :slogan="sockData.slogan" @goBack="removeSock" />
   </div>
 </template>
 
@@ -31,6 +31,11 @@ export default {
         slogan,
         description
       };
+    },
+
+    removeSock(){
+      // Setting the sockData to null will automatically remove the sock detail page
+      this.sockData = null;
     }
   }
 }
