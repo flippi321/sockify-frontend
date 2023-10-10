@@ -1,7 +1,7 @@
 <template>
   <div>
     <MainPage v-if="!sockData" @generatedSock="showSock"/>
-    <SockDetails v-else :name="sockData.name" :description="sockData.description" :type="sockData.type" :slogan="sockData.slogan" @goBack="removeSock" />
+    <SockDetails v-else :name="sockData.name" :description="sockData.description" :type="sockData.type" :theme="sockData.theme" :slogan="sockData.slogan" @goBack="removeSock" />
   </div>
 </template>
 
