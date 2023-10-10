@@ -28,7 +28,6 @@
 import apiService from '../services/apiService.js';
 
 export default {
-  props: ['msg'],
   data() {
     return {
       text: 'Generate!',
