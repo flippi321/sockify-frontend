@@ -58,9 +58,7 @@ export default {
 
           // Fetch sock details
           const dataFromBackend = await apiService.getASockIdea(this.selectedSockType, this.selectedTheme,);
-          if(this.isCorrectlyFormatted(dataFromBackend)){
-            this.$emit('generatedSock', dataFromBackend)
-          }
+          this.$emit('generatedSock', dataFromBackend)
 
           // TODO FIX ERROR
           // Reenable generate button
@@ -73,11 +71,6 @@ export default {
           console.error("Error handling button click:", error);
         }
       }
-    },
-    // Returns true if text contains 4 semicolons ";"
-    isCorrectlyFormatted(text) {
-      const matches = text.match(/;/g);
-      return matches && matches.length === 4;
     }
   },
 }
