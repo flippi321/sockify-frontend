@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h2>Generate a unique sock idea based on size and theme:</h2>
+    <h2>Generate a unique sock idea based on theme and type:</h2>
 
-    <!-- Dropdown for sock size -->
-    <label for="sockSize">Sock Size:</label>
-    <select v-model="selectedSockSize" id="sockSize">
-      <option v-for="size in sockSize" :key="size" :value="size">
-        {{ size }}
+    <!-- Dropdown for sock type -->
+    <label for="sockSize">Sock Type:</label>
+    <select v-model="selectedSockType" id="sockType">
+      <option v-for="type in sockType" :key="type" :value="type">
+        {{ type }}
       </option>
     </select>
     <br/> 
@@ -31,14 +31,13 @@ export default {
   data() {
     return {
       text: 'Generate!',
-      selectedSockSize: '',
+      selectedSockType: '',
       selectedTheme: '',
-      selectedQuality: '',
-      sockSize: [
+      sockType: [
         "Ankle Socks",
         "Crew Socks",
         "Knee-High Socks",
-        "Thigh-Highs",
+        "Thigh-High Socks",
       ],
       themes: [
         "Generic",
@@ -51,12 +50,14 @@ export default {
   },
   methods: {
     async handleButtonClick() {
-      try {
+      if(this.selectedSockSize != "" && this.selectedSockType != ""){
+        try {
         const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme,);
         console.log(dataFromBackend);
         this.$emit('generatedSock', dataFromBackend)
       } catch (error) {
         console.error("Error handling button click:", error);
+      }
       }
     }
   },
