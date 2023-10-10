@@ -20,7 +20,7 @@
     </select>
     <br/> 
 
-    <button @click="handleButtonClick"> {{ text }}</button>
+    <button @click="handleButtonClick" :disabled='!canGenerate'> {{ text }}</button>
   </div>
 </template>
 
@@ -33,6 +33,7 @@ export default {
       text: 'Generate!',
       selectedSockType: '',
       selectedTheme: '',
+      canGenerate: true,
       sockType: [
         "Ankle Socks",
         "Crew Socks",
@@ -52,12 +53,20 @@ export default {
     async handleButtonClick() {
       if(this.selectedSockSize != "" && this.selectedSockType != ""){
         try {
-        const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme,);
-        console.log(dataFromBackend);
-        this.$emit('generatedSock', dataFromBackend)
-      } catch (error) {
-        console.error("Error handling button click:", error);
-      }
+          // Disable button so you can't spam generate
+          this.canGenerate = false;
+
+          // Fetch sock details
+          const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme,);
+          console.log(dataFromBackend);
+          this.$emit('generatedSock', dataFromBackend)
+        } catch (error) {
+          // Reenable generate button
+          this.canGenerate = true;
+
+          // Log the issue
+          console.error("Error handling button click:", error);
+        }
       }
     }
   },
@@ -110,8 +119,14 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+/* Styling the button on hover */
+button:hover:not(:disabled) {
     background-color: #0056b3;
+}
+
+/* Styling the button when disabled */
+button:disabled {
+    background-color: #C0C0C0;
 }
 
 /* Styling the labels */
