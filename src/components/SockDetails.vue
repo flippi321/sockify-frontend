@@ -1,16 +1,36 @@
 <template>
-<p> You got: </p>
-  <div class="container">
-    <h1>{{ name }}</h1>
-    <h3> {{ type }} </h3>
-    <h4> {{ slogan }} </h4>
-    <p> {{ description }} </p>
+  <div>
+    <p> You got: </p>
+    <div class="container">
+      <h1>{{ name }}</h1>
+      <!-- Display the image -->
+      <img :src="imageUrl" alt="Sock Image" v-if="imageUrl">
+      <h3> {{ type }} </h3>
+      <h4> {{ slogan }} </h4>
+      <p> {{ description }} </p>    
+    </div>
   </div>
 </template>
 
 <script>
+import apiService from '../services/apiService.js';
+
 export default {
-  props: ['name', 'type', 'slogan', 'description', ],
+  props: ['name', 'type', 'slogan', 'description'],
+  data() {
+    return {
+      imageUrl: ''
+    }
+  },
+  async mounted() {
+    try {
+      const imageData = await apiService.getASockImage(this.name, this.type, this.description);
+      this.imageUrl = imageData;
+      console.log(imageData)
+    } catch (error) {
+      console.error("Error fetching the sock image:", error);
+    }
+  }
 }
 </script>
 
@@ -49,5 +69,11 @@ p {
     font-size: 1rem;
     font-weight: 400;
     text-align: center;
+}
+
+img {
+    max-width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
 }
 </style>
