@@ -51,15 +51,20 @@ export default {
   },
   methods: {
     async handleButtonClick() {
-      if(this.selectedSockSize != "" && this.selectedSockType != ""){
+      if(this.selectedSockType != "" && this.selectedTheme != ""){
         try {
           // Disable button so you can't spam generate
           this.canGenerate = false;
 
           // Fetch sock details
-          const dataFromBackend = await apiService.getASockIdea(this.selectedSockSize, this.selectedTheme,);
-          console.log(dataFromBackend);
-          this.$emit('generatedSock', dataFromBackend)
+          const dataFromBackend = await apiService.getASockIdea(this.selectedSockType, this.selectedTheme,);
+          if(this.isCorrectlyFormatted(dataFromBackend)){
+            this.$emit('generatedSock', dataFromBackend)
+          }
+
+          // TODO FIX ERROR
+          // Reenable generate button
+          this.canGenerate = true;
         } catch (error) {
           // Reenable generate button
           this.canGenerate = true;
@@ -68,6 +73,11 @@ export default {
           console.error("Error handling button click:", error);
         }
       }
+    },
+    // Returns true if text contains 4 semicolons ";"
+    isCorrectlyFormatted(text) {
+      const matches = text.match(/;/g);
+      return matches && matches.length === 4;
     }
   },
 }
