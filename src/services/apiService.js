@@ -3,11 +3,11 @@ import axios from 'axios';
 const API_URL = "http://localhost:3000/sockIdea"; // or "http://localhost:3000/"
 
 export default {
-    async getASockIdea(size, type) {
+    async getASockIdea(type, theme) {
         try {
             const sockDescription = {
-                size: size,
                 type: type,
+                theme: theme,
             };
             const response = await axios.post(`${API_URL}`, sockDescription);
             return response.data;
