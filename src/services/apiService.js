@@ -16,4 +16,16 @@ export default {
             throw error;
         }
     },
+    async getASockImage(description) {
+        try {
+            const sockDescription = {
+                description: description,
+            };
+            const response = await axios.post(`${API_URL}/Image`, sockDescription);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching sock image:", error);
+            throw error;
+        }
+    },
 };
