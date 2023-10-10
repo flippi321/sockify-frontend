@@ -1,16 +1,21 @@
 <template>
-  <div class="container">
+  <div class="outer-container">
+    <div class="container">
       <div class="image-container">
         <img :src="imageUrl" alt="Sock Image" v-if="imageUrl">
       </div>
       <div class="info">
         <div class="box name"><h1>{{ name }}</h1></div>
         <div class="box type"><h3>{{ type }}</h3></div>
+        <div class="box type"><h3>{{ theme }}</h3></div>
         <div class="box slogan"><h4>{{ slogan }}</h4></div>
         <div class="box description"><p>{{ description }}</p></div>
       </div>
     </div>
+    <button class="retry-button" @click="tryAgain">Try Again</button>
+  </div>
 </template>
+
 
 <script>
 import apiService from '../services/apiService.js';
@@ -24,15 +29,21 @@ export default {
   },
   async mounted() {
     try {
-      // Fetch image
+      // Fetch image with the sock data
       const imageData = await apiService.getASockImage(this.name, this.type, this.description);
       this.imageUrl = imageData;
       console.log(imageData)
     } catch (error) {
       console.error("Error fetching the sock image:", error);
     }
+  },
+  methods: {
+    tryAgain() {
+      this.$emit('goBack');
+    }
   }
 }
+
 </script>
 
 <style scoped>
@@ -102,4 +113,26 @@ img {
     border-radius: 10px;
 }
 
+.outer-container {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.retry-button {
+  background-color: #2c2c2c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+}
+
+.retry-button:hover {
+  background-color: #1a1a1a;
+}
 </style>
