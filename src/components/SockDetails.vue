@@ -30,7 +30,7 @@ export default {
   async mounted() {
     try {
       // Fetch image with the sock data
-      const imageData = await apiService.getASockImage(this.name, this.type, this.description);
+      const imageData = await apiService.getASockImage(this.theme, this.type, this.description);
       this.imageUrl = imageData;
       console.log(imageData)
     } catch (error) {
