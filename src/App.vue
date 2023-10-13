@@ -22,15 +22,17 @@ export default {
   },
   methods: {
     showSock(sockCSV) {
-      const [name, type, theme, slogan, description] = sockCSV.split(';').map(str => str.trim());
+    const response = sockCSV.response;
+    const [name, type, theme, slogan, description] = response.split(';').map(str => str.trim());
 
-      this.sockData = {
-        name,
-        type,
-        theme,
-        slogan,
-        description
-      };
+    this.sockData = {
+      name,
+      type,
+      theme,
+      slogan,
+      description
+    };
+
     },
 
     removeSock(){
